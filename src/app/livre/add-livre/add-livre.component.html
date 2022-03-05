@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form class="matform" [formGroup]="formulaire" (ngSubmit)="submitForm(formulaire)" novalidate>
+
+            
+                    <div class="form-group row col-md-6">
+
+                        <label>Image du livre</label>
+                        <div class="col-md-3">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail"
+                                    style="border: solid 1px; width: 200px; height: 150px; ">
+                                    <img src="../../../assets/500.png" alt="" />
+                                </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail"
+                                    style="max-width: 200px; max-height: 150px; line-height: 20px; "></div>
+                                <div>
+                                    <span class="btn btn-secondary btn-file">
+                                        <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir une
+                                            image</span>
+                                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Changer</span>
+                                        <input type="file" value="" name="photo" (change)="imgSelect($event)" required
+                                            class="default" />
+                                    </span>
+                                    <!-- <a href="javascript:" type="reset" class="btn btn-theme04 fileupload-exists"
+                                        data-dismiss="fileupload"
+                                        style="margin-left: 1%;"
+                                        ><i class="fa fa-trash-o"></i> Supprimer</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+
+                        <label>Fichier du
+                            livre</label>
+                        <div class="controls col-md-5">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <span class="btn btn-secondary btn-file">
+                                    <span class="fileupload-new"><i class="fa fa-paperclip"></i> Choisir un
+                                        fichier</span>
+                                    <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                                    <input type="file" class="default" value="" name="livre"
+                                        (change)="livreSelect($event)" required />
+                                </span>
+                                <span class="fileupload-preview" style="margin-left:5px;"></span>
+                                <a href="" class="close fileupload-exists" data-dismiss="fileupload"
+                                    style="float: none; margin-left:5px;"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="titre">Titre du livre</mat-label>
+                            <input type="text" matInput id="titre" placeholder="Ajouter un titre"
+                                formControlName="titre" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="titre">Auteur</mat-label>
+                            <input matInput type="text" id="auteur" placeholder="Nom de l'auteur"
+                                formControlName="auteur" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="prix">Prix</mat-label>
+                            <input type="number" matInput id="prix" placeholder="Prix du livre" formControlName="prix"
+                                required>
+                        </mat-form-field>
+                        
+
+                    </div>
+                    <div class="form-group row">
+
+
+                        
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label>Catégorie</mat-label>
+                            <mat-select style="width: 100%; height:36px;" formControlName="category" required>
+                                <mat-option *ngFor="let category of allCategory" value="{{category.idCategory}}">
+                                    {{category.category}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="mx-4">
+                                <mat-label>Librairie</mat-label>
+                                <mat-select style="width: 100%; height:36px;" formControlName="librairy" required>
+                                    <mat-option *ngFor="let librairy of alllibrairy" value="{{librairy.idLibrairy}}">
+                                        {{librairy.librairy}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            
+                            <mat-form-field appearance="fill" class="mx-4">
+                                <mat-label>Format</mat-label>
+                                <mat-select style="width: 100%; height:36px;" formControlName="format" required>
+                                    <mat-option value="Ebook">Ebook</mat-option>
+                                    <mat-option value="Audio">Audio</mat-option>
+                                    <mat-option value="Document">Document</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group row">
+
+                    </div>
+                  
+                        <div class="form-group row">
+
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="">Sommaire du livre</mat-label>
+                            <textarea matInput formControlName="sommaire"></textarea>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="mx-4">
+                            <mat-label for="">Description du livre</mat-label>
+                            <textarea matInput formControlName="description"></textarea>
+                        </mat-form-field>
+                    </div>
+          
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-info" [disabled]="">Enregistrer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+  
